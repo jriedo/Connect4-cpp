@@ -108,9 +108,7 @@ void Game::ai_move(){
           _current_player = 3 - _current_player;
          if((_current_player == 1 && _p1_is_ai) || (_current_player == 2 && _p2_is_ai)){
 //             std::thread t(&Game::ai_move,this);
-//             if(t.joinable()){
-//                 t.join();
-//             }
+//             t.detach();
              ai_move();
          }
          else{//human move

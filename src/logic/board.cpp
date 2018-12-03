@@ -31,16 +31,16 @@ void Board::drop(int col, int player){
 }
 
 /**
- * @brief Board::is_game_over
- * @param player
- * @return
+ * @brief Board::is_game_over   : checks if player won or board full
+ * @param player                : player for which the win criteria is checked
+ * @return                      : true if game is over
  */
 bool Board::is_game_over(int player){
     return (possible_drops().size()==0 || is_winner(player));
 }
 
 /**
- * @brief Board::is_full
+ * @brief Board::is_full    : checks if game is over
  * @return
  */
 bool Board::is_full(){
@@ -48,8 +48,8 @@ bool Board::is_full(){
 }
 
 /**
- * @brief Board::is_winner
- * @param player
+ * @brief Board::is_winner  : checks if player won
+ * @param player            : player for which the win criteria is checked
  * @return
  */
 bool Board::is_winner(int player){
@@ -85,15 +85,15 @@ bool Board::is_winner(int player){
 }
 
 /**
- * @brief Board::eval
- * @param player
- * @param win
- * @param loose
- * @param depth
+ * @brief Board::eval   : Evaluates positions of player, gives back nummeric value of how good the positions are
+ * @param player        : Player for which the evaluation is carried out
+ * @param win           : Value of a win situation
+ * @param loose         : Value of a loose situation
+ * @param depth         : Depth of current board evaluation
  * @return
  */
 int Board::eval(int player, int win, int loose, int depth){
-    if(is_winner(player)){
+    if(is_winner(player)){//return +depth so faster wins are better
         return win+depth;
     }
     else if(is_winner(3-player)){
@@ -119,6 +119,10 @@ int Board::eval(int player, int win, int loose, int depth){
     }
 }
 
+/**
+ * @brief Board::possible_drops : returns all possible positions to drop in a vector
+ * @return
+ */
 std::vector<int> Board::possible_drops(){
     std::vector<int> drops;
     for(int i=0; i<7; ++i){
@@ -129,17 +133,28 @@ std::vector<int> Board::possible_drops(){
     return drops;
 }
 
+/**
+ * @brief Board::reset  :
+ */
 void Board::reset(){
-    // set board positions all to zero
     std::array<int, 6> dummy;
     dummy.fill(0);
     _positions.fill(dummy);
 }
 
+/**
+ * @brief Board::get_positions  : return current positions
+ * @return
+ */
 boardarray Board::get_positions(){
     return _positions;
 }
 
+/**
+ * @brief Board::get_winning_line   : return pair of start and endpoint of the 4 connected winner coins
+ * @param player                    : winning player
+ * @return
+ */
 std::pair<std::pair<int, int>, std::pair<int, int> > Board::get_winning_line(int player)
 {
     //returns pair <start, end> with start = <x,y> and end = <x,y>

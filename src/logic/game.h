@@ -1,7 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <QListWidget>
 #include <thread>
 #include <chrono>
 #include "board.h"

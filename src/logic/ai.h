@@ -3,6 +3,9 @@
 
 #include "board.h"
 
+/**
+ * @brief The Ai class represents an ai for a certain player, with defined depth
+ */
 class Ai
 {
 public:

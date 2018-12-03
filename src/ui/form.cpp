@@ -142,10 +142,6 @@ void Form::on_btn_start_clicked()
     //actually generate game and start it
     game = new Game(this, _p1_is_ai, _p2_is_ai, _p1_depth, _p2_depth, _p_start);
     game->start();
-
-//    std::thread t(&Game::start, game);
-//    if(t.joinable())
-//        t.join();
 }
 
 /**
