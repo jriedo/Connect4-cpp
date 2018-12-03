@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>660</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>900</width>
+    <height>660</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>900</width>
+    <height>660</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>connect4</string>
+  </property>
+  <widget class="QGraphicsView" name="graphicsView">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>720</width>
+     <height>620</height>
+    </rect>
+   </property>
+   <property name="interactive">
+    <bool>false</bool>
+   </property>
+   <property name="sceneRect">
+    <rectf>
+     <x>0.000000000000000</x>
+     <y>0.000000000000000</y>
+     <width>720.000000000000000</width>
+     <height>620.000000000000000</height>
+    </rectf>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_start">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>615</y>
+     <width>120</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Start</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_drop_0">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>100</width>
+     <height>600</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_drop_1">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>30</y>
+     <width>100</width>
+     <height>600</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_drop_2">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>30</y>
+     <width>100</width>
+     <height>600</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_drop_3">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>30</y>
+     <width>100</width>
+     <height>600</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_drop_4">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>30</y>
+     <width>100</width>
+     <height>600</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_drop_5">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>30</y>
+     <width>100</width>
+     <height>600</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btn_drop_6">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>30</y>
+     <width>100</width>
+     <height>600</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>20</y>
+     <width>120</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Player 1 (yellow)</string>
+   </property>
+   <widget class="QRadioButton" name="rdbtn_p1_ai">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>41</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>AI</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="rdbtn_p1_human">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>30</y>
+      <width>112</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Human</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cmbb_difficulty_1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>100</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>3</number>
+    </property>
+    <item>
+     <property name="text">
+      <string>depth 1 - arbitrary</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 2 - passive</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 3 - sandbox </string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 4 - easy</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 5 - mediocre</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 6 - moderate</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 7 - tougher</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 8 - hard</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 9 - wizard</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 10 - buy new GPU</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 11 - better TPU</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 12 - liquid nitrogen cooled</string>
+     </property>
+    </item>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>160</y>
+     <width>120</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Player 2 (red)</string>
+   </property>
+   <widget class="QRadioButton" name="rdbtn_p2_ai">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>41</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>AI</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="rdbtn_p2_human">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>30</y>
+      <width>112</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Human</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cmbb_difficulty_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>100</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <item>
+     <property name="text">
+      <string>depth 1 - arbitrary</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 2 - passive</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 3 - sandbox </string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 4 - easy</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 5 - mediocre</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 6 - moderate</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 7 - tougher</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 8 - hard</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 9 - wizard</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 10 - buy new GPU</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 11 - better TPU</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>depth 12 - liquid nitrogen cooled</string>
+     </property>
+    </item>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_3">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>300</y>
+     <width>120</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Starting Player</string>
+   </property>
+   <widget class="QRadioButton" name="rdbtn_start_p1">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>25</y>
+      <width>112</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Player 1</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="rdbtn_start_p2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>112</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Player 2</string>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_4">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>400</y>
+     <width>120</width>
+     <height>180</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Output</string>
+   </property>
+   <widget class="QListWidget" name="lst_out">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>20</y>
+      <width>120</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="autoScroll">
+     <bool>false</bool>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::CurrentChanged|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="btn_reset">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>585</y>
+     <width>120</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Reset</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
