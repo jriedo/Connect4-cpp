@@ -4,6 +4,8 @@ QT UI to play connect 4 against another human player or an AI. AI vs AI is possi
 
 ![](ai_ai_gameplay.gif)
 
+The plotting.m file contains computation times (as a matlab script) for one ai for one game (vs other ai) in c++ and python
+
 known bugs: crashes at exit, probably some deletion of non-existing pointer, could not find where.
 
 todos: icon only works for windows systems
