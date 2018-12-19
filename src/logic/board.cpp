@@ -13,12 +13,15 @@ Board::Board(){
  * @brief Board::Board Constructor used for temporary boards created by ai (no graphics)
  * @param positions current state of game, copied to new board
  */
-Board::Board(boardarray positions)
-{
-    _positions=positions;
-}
+Board::Board(boardarray positions):
+    m_positions(positions)
+{}
 
-Board::~Board(){}
+/**
+ * @brief Board::~Board   : empty destructor
+ */
+Board::~Board()
+{}
 
 /**
  * @brief Board::drop   : Execute drop on boardarray positions
@@ -26,8 +29,8 @@ Board::~Board(){}
  * @param player        : represents player who plays the move
  */
 void Board::drop(int col, int player){
-        std::size_t row = std::distance(_positions[col].begin(), std::find_if(_positions[col].begin(), _positions[col].end(), [](int val) { return val != 0; }))-1;
-        _positions[col][row] = player;
+        std::size_t row = std::distance(m_positions[col].begin(), std::find_if(m_positions[col].begin(), m_positions[col].end(), [](int val) { return val != 0; }))-1;
+        m_positions[col][row] = player;
 }
 
 /**
@@ -54,13 +57,13 @@ bool Board::is_full(){
  */
 bool Board::is_winner(int player){
 //    vertical
-    for(auto col : _positions){
+    for(auto col : m_positions){
         if(std::search_n(col.begin(), col.end(), 4, player) != col.end()){return true;};//could be faster with hints somehow
     }
 //    horizontal
     for(int j = 0; j < 6; ++j){
         for(int i = 0; i < 4; ++i){
-            if(_positions[i][j] == player && _positions[i+1][j] == player && _positions[i+2][j] == player && _positions[i+3][j] == player){
+            if(m_positions[i][j] == player && m_positions[i+1][j] == player && m_positions[i+2][j] == player && m_positions[i+3][j] == player){
                 return true;
             }
         }
@@ -68,7 +71,7 @@ bool Board::is_winner(int player){
 //    diagonal down
         for(int j = 0; j < 3; ++j){
             for(int i = 0; i < 4; ++i){
-                if(_positions[i][j] == player && _positions[i+1][j+1] == player && _positions[i+2][j+2] == player && _positions[i+3][j+3] == player){
+                if(m_positions[i][j] == player && m_positions[i+1][j+1] == player && m_positions[i+2][j+2] == player && m_positions[i+3][j+3] == player){
                     return true;
                 }
             }
@@ -76,7 +79,7 @@ bool Board::is_winner(int player){
 //    diagonal up
         for(int j = 3; j < 6; ++j){
             for(int i = 0; i < 4; ++i){
-                if(_positions[i][j] == player && _positions[i+1][j-1] == player && _positions[i+2][j-2] == player && _positions[i+3][j-3] == player){
+                if(m_positions[i][j] == player && m_positions[i+1][j-1] == player && m_positions[i+2][j-2] == player && m_positions[i+3][j-3] == player){
                     return true;
                 }
             }
@@ -110,7 +113,7 @@ int Board::eval(int player, int win, int loose, int depth){
         int sum = 0;
         for(int col = 0; col<7; ++col){
             for(int row = 0; row<6; ++row){
-                if(_positions[col][row] == player){
+                if(m_positions[col][row] == player){
                     sum += _weights[col][row];
                 }
             }
@@ -126,7 +129,7 @@ int Board::eval(int player, int win, int loose, int depth){
 std::vector<int> Board::possible_drops(){
     std::vector<int> drops;
     for(int i=0; i<7; ++i){
-        if(_positions[i][0]==0){
+        if(m_positions[i][0]==0){
             drops.push_back(i);
         }
     }
@@ -139,7 +142,7 @@ std::vector<int> Board::possible_drops(){
 void Board::reset(){
     std::array<int, 6> dummy;
     dummy.fill(0);
-    _positions.fill(dummy);
+    m_positions.fill(dummy);
 }
 
 /**
@@ -147,7 +150,7 @@ void Board::reset(){
  * @return
  */
 boardarray Board::get_positions(){
-    return _positions;
+    return m_positions;
 }
 
 /**
@@ -161,7 +164,7 @@ std::pair<std::pair<int, int>, std::pair<int, int> > Board::get_winning_line(int
     //    vertical
         for(int i = 0; i < 7; ++i){
             for(int j = 0; j < 3; ++j){
-                if(_positions[i][j] == player && _positions[i][j+1] == player && _positions[i][j+2] == player && _positions[i][j+3] == player){
+                if(m_positions[i][j] == player && m_positions[i][j+1] == player && m_positions[i][j+2] == player && m_positions[i][j+3] == player){
                     return std::make_pair(std::make_pair(i, j), std::make_pair(i, j+3));
                 }
             }
@@ -169,7 +172,7 @@ std::pair<std::pair<int, int>, std::pair<int, int> > Board::get_winning_line(int
     //    horizontal
         for(int j = 0; j < 6; ++j){
             for(int i = 0; i < 4; ++i){
-                if(_positions[i][j] == player && _positions[i+1][j] == player && _positions[i+2][j] == player && _positions[i+3][j] == player){
+                if(m_positions[i][j] == player && m_positions[i+1][j] == player && m_positions[i+2][j] == player && m_positions[i+3][j] == player){
                     return std::make_pair(std::make_pair(i, j), std::make_pair(i+3, j));
                 }
             }
@@ -177,7 +180,7 @@ std::pair<std::pair<int, int>, std::pair<int, int> > Board::get_winning_line(int
     //    diagonal down
             for(int j = 0; j < 3; ++j){
                 for(int i = 0; i < 4; ++i){
-                    if(_positions[i][j] == player && _positions[i+1][j+1] == player && _positions[i+2][j+2] == player && _positions[i+3][j+3] == player){
+                    if(m_positions[i][j] == player && m_positions[i+1][j+1] == player && m_positions[i+2][j+2] == player && m_positions[i+3][j+3] == player){
                         return std::make_pair(std::make_pair(i, j), std::make_pair(i+3, j+3));
                     }
                 }
@@ -185,7 +188,7 @@ std::pair<std::pair<int, int>, std::pair<int, int> > Board::get_winning_line(int
     //    diagonal up
             for(int j = 3; j < 6; ++j){
                 for(int i = 0; i < 4; ++i){
-                    if(_positions[i][j] == player && _positions[i+1][j-1] == player && _positions[i+2][j-2] == player && _positions[i+3][j-3] == player){
+                    if(m_positions[i][j] == player && m_positions[i+1][j-1] == player && m_positions[i+2][j-2] == player && m_positions[i+3][j-3] == player){
                         return std::make_pair(std::make_pair(i, j), std::make_pair(i+3, j-3));
                     }
                 }

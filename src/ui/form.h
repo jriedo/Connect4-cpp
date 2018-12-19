@@ -27,18 +27,21 @@ class Form : public QWidget, public Observer
 
 public:
     explicit Form(QWidget *parent = nullptr);
-    ~Form();
+    ~Form() override;
 
 
 private:
     Ui::Form* ui;
-    QGraphicsScene* _scene;
-    Board _board;
-    Game* game;
-    QBrush _redBrush;
-    QBrush _yelBrush;
-    QPen _borderPen;
-    QPen _dashedPen;
+    std::unique_ptr<QGraphicsScene> m_scene;
+    std::unique_ptr<Game> m_game;
+    std::unique_ptr<QTimer> m_updateGuiTimer;
+    std::unique_ptr<QGraphicsTextItem> m_txtHelp;
+    std::unique_ptr<QGraphicsTextItem> m_txtGameOver;
+
+    QBrush m_redBrush;
+    QBrush m_yelBrush;
+    QPen m_borderPen;
+    QPen m_dashedPen;
 
     void init();
     void startTimer();
@@ -54,19 +57,18 @@ private:
     virtual void setWinningLine(std::pair<std::pair<int, int>, std::pair<int, int>> winningLine) override;
 
     //game start settings
-    bool _p1_is_ai;
-    bool _p2_is_ai;
-    int _p1_depth;
-    int _p2_depth;
-    int _p_start;
+    bool m_p1_is_ai;
+    bool m_p2_is_ai;
+    int m_p1_depth;
+    int m_p2_depth;
+    int m_p_start;
 
     //board variables during game
-    boardarray _positions;
-    bool _game_over;
-    int _winner;
-    std::pair<std::pair<int, int>, std::pair<int, int>> _winner_line;
-    std::vector<int> _possibleDrops;
-
+    boardarray m_positions;
+    bool m_game_over;
+    int m_winner;
+    std::pair<std::pair<int, int>, std::pair<int, int>> m_winner_line;
+    std::vector<int> m_possibleDrops;
 
 private slots:
     void on_btn_drop_0_clicked();

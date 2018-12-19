@@ -8,9 +8,7 @@
 Ai::Ai(int depth, int player): m_depth(depth), m_player(player), m_winScore(5000), m_looseScore(-5000), m_move(-1)
 {}
 
-/**
- * @brief Ai::~Ai   : empty destructor
- */
+
 Ai::~Ai()
 {}
 
@@ -30,7 +28,7 @@ std::pair<int, int> Ai::get_move(const Board &board){
  * @param depth_to_go   : current depth, shrinks per iteration
  * @param alpha         : alpha value for alpha-beta-pruning
  * @param beta          : beta value for alpha-beta-pruning
- * @return              : max value from eval for this depth
+ * @return
  */
 int Ai::max_value(Board board, int depth_to_go, int alpha, int beta){
     if(depth_to_go == 0 || board.is_game_over(3 - m_player)){
@@ -64,7 +62,7 @@ int Ai::max_value(Board board, int depth_to_go, int alpha, int beta){
  * @param depth_to_go   : current depth, shrinks per iteration
  * @param alpha         : alpha value for alpha-beta-pruning
  * @param beta          : beta value for alpha-beta-pruning
- * @return              : min value from eval for this depth
+ * @return
  */
 int Ai::min_value(Board board, int depth_to_go, int alpha, int beta){
     if(depth_to_go == 0 || board.is_game_over(m_player)){

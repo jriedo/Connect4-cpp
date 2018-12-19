@@ -486,7 +486,7 @@
      <enum>Qt::ScrollBarAlwaysOff</enum>
     </property>
     <property name="autoScroll">
-     <bool>false</bool>
+     <bool>true</bool>
     </property>
     <property name="editTriggers">
      <set>QAbstractItemView::CurrentChanged|QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>

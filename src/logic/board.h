@@ -39,12 +39,7 @@ public:
     std::pair<std::pair<int, int>, std::pair<int, int>> get_winning_line(int player);
 
 private:
-    QBrush _redBrush;
-    QBrush _yelBrush;
-    QPen _borderPen;
-    QPen _dashedPen;
-
-    boardarray _positions;
+    boardarray m_positions;
 
 
 };
