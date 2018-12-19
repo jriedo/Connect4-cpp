@@ -1,16 +1,15 @@
 #ifndef AI_H
 #define AI_H
 
+#include <thread>
+#include <future>
+#include <mutex>
 #include "board.h"
 
-/**
- * @brief The Ai class represents an ai for a certain player, with defined depth
- */
 class Ai
 {
 public:
     Ai(int depth, int player);
-    ~Ai();
     std::pair<int, int> get_move(const Board &board);
 
 private:
@@ -19,10 +18,10 @@ private:
     int m_winScore;
     int m_looseScore;
     int m_move;
+    std::array<int, 7> m_score;
+    std::mutex mu;
 
-    Board m_tmp_board;
-
-
+    void startFirstMove(int col, Board board, int depth_to_go);
     int max_value(Board board, int depth_to_go, int alpha, int beta);
     int min_value(Board board, int depth_to_go, int alpha, int beta);
 };
